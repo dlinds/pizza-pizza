@@ -47,6 +47,13 @@ myOrder.addPizza(pizza);
 myOrder;  
 Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}  
 
+### Describe Order.prototype.deletePizza(id) 
+Test: This should delete a pizza from the order
+Code:  
+myOrder.deletePizza(id); 
+Expected Output: true
+
+
 ### Describe Pizza(toppings, size)  
 Test: "It should create a Pizza object, with toppings from a list and a size selected"  
 Code:  
@@ -59,8 +66,6 @@ Code:
 const pizza = new Pizza(["pineapple", "bacon"], "large");
 pizza;
 Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: "large", price: 22}  
-
-
 
 
 ## Known Bugs

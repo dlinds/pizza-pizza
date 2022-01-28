@@ -15,6 +15,14 @@ Order.prototype.setPizzaID = (function () {
   return this.currentID;
 });
 
+Order.prototype.deletePizza = (function (id) {
+  if (this.pizzas[id] === undefined) {
+    return false;
+  }
+  delete this.pizzas[id];
+  return true;
+});
+
 function Pizza (toppings,size) {
   this.toppings = toppings;
   this.size = size;
@@ -57,9 +65,6 @@ function getPizzaToppings() {
   return toppingsArray;
 }
 
-
-
-
 function addPizzaToOrderScreen (pizza) {
 
   let pizzaOrderList = "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\">" + pizza.size + " Pizza";
@@ -79,8 +84,6 @@ function addPizzaToOrderScreen (pizza) {
   $("#current-pizza-list").append(pizzaOrderList);
 }
 
-
-
 function resetInputs () {
   $("#pizza-size").val("");
   $('input[name="toppings"]').each(function() {
@@ -95,7 +98,8 @@ function calculateTotal () {
 function clickHandlerForRemovePizza (id) {
   $("#remove-pizza-" + id).on("click", function() {
     $("#pizza-row-" + id).remove();
-    console.log(id);
+    myOrder.deletePizza(id);
+    console.log(myOrder);
   });
 }
 
