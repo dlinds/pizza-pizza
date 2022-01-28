@@ -99,7 +99,6 @@ function clickHandlerForRemovePizza (id) {
   $("#remove-pizza-" + id).on("click", function() {
     $("#pizza-row-" + id).remove();
     myOrder.deletePizza(id);
-    console.log(myOrder);
   });
 }
 

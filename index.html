@@ -5,20 +5,46 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.6.0.js"></script>
   <script src="js/scripts.js"></script>
-  <title>Pizza Pizza</title>
+  <title>Pizza, pizza.</title>
 </head>
 <body>
   <div class="container" id="start-order-screen">
-    <button class="btn btn-light" id="start-order-button">Start Order</button>
+    <div class="card" id="start-order-card">
+      <div id="start-screen-header">
+        <div class="row">
+          <div class="col-lg-5">
+            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+          </div>
+          <div class="col-lg-7">
+            <div class="card-title">
+              <h1 class="heading-1">Welcome to <em><strong>Pizza, pizza.</strong></em></h1>
+            </div>
+            <div class="card-body" id="about-text">
+              <p>
+                Welcome to the website for the world famous <em><strong>Pizza, pizza.</strong></em> restaurant, located in Portland, OR. 
+                <em><strong>Pizza, pizza.</strong></em> is the oldest pizza place in Portland, having served the community for 200 years. Yes, <strong>200 years</strong>. We are older than the Oregon Trail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="start-order-when-ready">
+        <div class="card-title" id="when-ready-card">
+          <h5 class="heading-5">When you're ready to place an order, click the Start Order button below.</h5>
+        </div>
+        <button class="btn btn-dark" id="start-order-button">Start Order</button>
+      </div>
+      
+    </div>
   </div>
-  <div class="container" id="pizza-ordering-container">
+  <div class="container hidden" id="pizza-ordering-container">
     <div class="card" id="pizza-ordering-card-container">
-      <div class="card-title" id="pizza-ordering-header">
-        <h3 class="heading-3">Welcome to the Pizza Pizza website!</h3>
+      <div class="card-title pizza-ordering-header">
+        <h3 class="heading-3">Place your order below!</h3>
       </div>
       <div class="card-body">
         <p id="ordering-instructions">Please build your pizza(s) below. When you're finished, click Add to add the pizza to your order.</p>
-        <div class=row>
+        <div class="row">
           <div class="col-lg-12 pizza-menu-columns" id="size-toppings-selection">
             <form id="add-pizza">
               <div class="form-group">
@@ -125,22 +151,3 @@
   </div>
 </body>
 </html>
-
-
-<!-- hide order column via removeing and adding classes to the main row -->
-
-
-
-<!-- <div class="row order-row">
-  <div class="col-7 order-col">
-    Large Pizza
-    <ul>
-      <li>Sausage</li>
-      <li>Five Cheese</li>
-    </ul>
-  </div>
-  <div class="col-5 align-self-end">
-    $20<br><br>
-    <p><u>Remove Pizza</u></p>
-  </div>
-</div> -->
