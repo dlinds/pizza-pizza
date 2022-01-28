@@ -1,0 +1,22 @@
+#pizza-ordering-container {
+  margin-top: 3%;
+}
+#pizza-ordering-card-container {
+  padding: 2%;
+}
+#pizza-ordering-header {
+  text-align: center;
+}
+#ordering-instructions {
+  margin-bottom: 15px;
+}
+
+.pizza-menu-columns {
+  border: 1px solid #d0d0d0;
+}
+#add-pizza {
+  padding: 15px;
+}
+#add-pizza-button {
+  margin-top: 5%;
+}
