@@ -6,7 +6,8 @@ function Order() {
 }
 
 Order.prototype.addPizza = (function (pizza) {
-  this.pizzas[this.setPizzaID()] = pizza;
+  pizza.id = this.setPizzaID()
+  this.pizzas[pizza.id] = pizza;
 });
 
 Order.prototype.setPizzaID = (function () {
@@ -42,10 +43,7 @@ Pizza.prototype.calculatePrice = (function() {
 
 
 let myOrder = new Order(); 
-// const pizza = new Pizza(["pineapple", "bacon"], "large");
-// const pizza2 = new Pizza(["bacon"], "medium");
-// myOrder.addPizza(pizza);
-// myOrder.addPizza(pizza2);
+
 
 
 
@@ -57,6 +55,43 @@ function getPizzaToppings() {
     toppingsArray.push($(this).val());
   });
   return toppingsArray;
+}
+
+function clickHandlerForRemovePizza (id) {
+  $("#remove-pizza-" + id).on("click", function() {
+    $("#pizza-row-" + id).remove();
+  });
+}
+
+
+function addPizzaToOrderScreen (pizza) {
+  let pizzaOrderList = $("#current-pizza-list").html();
+  pizzaOrderList += "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\">" + pizza.size + " Pizza";
+  if (pizza.toppings.length === 9) {
+    pizzaOrderList += "<ul><li>The Everything</li></ul>"
+  } else if (pizza.toppings.length > 0) {
+    pizzaOrderList += "<ul>";
+    pizza.toppings.forEach(function (topping) {
+      pizzaOrderList += "<li>" + topping + "</li>";
+    });
+    pizzaOrderList += "</ul>";
+  } else {
+    pizzaOrderList += "<ul><li>Classic Cheese</li></ul>"
+  }
+
+  pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + "<br><br><span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div></div><hr>";
+  $("#current-pizza-list").html(pizzaOrderList);
+}
+
+function resetInputs () {
+  $("#pizza-size").val("");
+  $('input[name="toppings"]').each(function() {
+    this.checked = false;
+  });
+}
+
+function calculateTotal () {
+  $("#totals-row").removeClass("hidden");
 }
 
 $(document).ready(function() {
@@ -71,9 +106,15 @@ $(document).ready(function() {
 
 	$("form#add-pizza").submit(function(event) {
     event.preventDefault();
+    $("#size-toppings-selection").removeClass("col-lg-12");
+    $("#size-toppings-selection").addClass("col-lg-7");
+    $("#order-details-row").removeClass("hidden");
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
     myOrder.addPizza(pizza);
-    console.log(myOrder);
+    addPizzaToOrderScreen(pizza);
+    clickHandlerForRemovePizza(pizza.id);
+    calculateTotal();
+    resetInputs();
   });
 
 

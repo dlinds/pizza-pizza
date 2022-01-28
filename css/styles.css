@@ -46,3 +46,9 @@ hr {
 .hidden {
   display: none;
 }
+.remove-pizza-button,.remove-pizza-button:hover {
+  padding: 0;
+  background: white;
+  border: 0px solid white;
+  color: black;
+}
