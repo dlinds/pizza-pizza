@@ -13,10 +13,30 @@
 
 .pizza-menu-columns {
   border: 1px solid #d0d0d0;
+  margin-top: 2%;
+  padding-top: 5%;
 }
 #add-pizza {
-  padding: 15px;
+  padding: 0px 15px 15px 15px;
 }
 #add-pizza-button {
   margin-top: 5%;
+}
+
+#toppings-menu {
+  margin-top: 5%;
+}
+
+.order-row {
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.order-col {
+  border-right: 1px solid black;
+}
+
+#last-row {
+  border-bottom: 0px;
 }

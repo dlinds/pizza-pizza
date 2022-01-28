@@ -21,17 +21,17 @@
               <div class="form-group">
                 <label for="pizza-size">What size do you want?</label>
                 <select class="form-control" id="pizza-size">
-                  <option disabled selected value> -- Select Your Size -- </option>
+                  <option disabled selected value></option>
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
               </div>
-              <div id="form-group">   
+              <div id="toppings-menu">   
                 <p>Please select as many toppings as you'd like!</p>
                 <p>Each topping is an additional $1.</p>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-4">
                     <h4>Meats</h4>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="pepperoni">
@@ -52,7 +52,7 @@
                       </label>
                     </div>
                   </div>     
-                  <div class="col-md-4">
+                  <div class="col-4">
                     <h4>Classics</h4>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="five-cheese">
@@ -73,7 +73,7 @@
                       </label>
                     </div>
                   </div> 
-                  <div class="col-md-4">
+                  <div class="col-4">
                     <h4>Veggies</h4>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="Onion">
@@ -100,10 +100,21 @@
             </form>
           </div>
           <div class="col-lg-5 pizza-menu-columns">
-            Pizza order goes here
+            <div class="row order-row">
+              <div class="col-7 order-col">
+                Large Pizza
+                <ul>
+                  <li>Sausage</li>
+                  <li>Five Cheese</li>
+                </ul>
+              </div>
+              <div class="col-5 align-self-end">
+                $20<br><br>
+                <p>Remove Pizza</p>
+              </div>
+            </div>
           </div>
-        </div>
-        
+        </div>        
       </div>
     </div>
   </div>
