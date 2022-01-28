@@ -49,8 +49,16 @@ Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}
 
 ### Describe Pizza(toppings, size)  
 Test: "It should create a Pizza object, with toppings from a list and a size selected"  
-Code: const pizza = new Pizza(["pineapple", "bacon"], 3);  
-Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: 3 }  
+Code:  
+const pizza = new Pizza(["pineapple", "bacon"], "large");  
+Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: "large" }  
+
+### Describe Pizza.prototype.calculatePrice()  
+Test: "It should determine a price for the pizza based on size and toppings"  
+Code:  
+const pizza = new Pizza(["pineapple", "bacon"], "large");
+pizza;
+Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: "large", price: 22}  
 
 
 
