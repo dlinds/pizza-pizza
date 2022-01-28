@@ -22,13 +22,13 @@ function Pizza (toppings,size) {
 
 Pizza.prototype.calculatePrice = (function() {
   switch (this.size) {
-    case "small":
+    case "Small":
       this.price = 10 + this.toppings.length;
       break;
-    case "medium":
+    case "Medium":
       this.price = 15 + this.toppings.length;
       break;
-    case "large":
+    case "Large":
       this.price = 20 + this.toppings.length;
       break;
     default:
@@ -41,7 +41,7 @@ Pizza.prototype.calculatePrice = (function() {
 
 
 
-// let myOrder = new Order(); 
+let myOrder = new Order(); 
 // const pizza = new Pizza(["pineapple", "bacon"], "large");
 // const pizza2 = new Pizza(["bacon"], "medium");
 // myOrder.addPizza(pizza);
@@ -50,3 +50,31 @@ Pizza.prototype.calculatePrice = (function() {
 
 
 // UI Logic
+
+function getPizzaToppings() {
+  let toppingsArray = [];
+  $("input:checkbox[name=toppings]:checked").each(function() {
+    toppingsArray.push($(this).val());
+  });
+  return toppingsArray;
+}
+
+$(document).ready(function() {
+
+  $("#start-order-button").on("click", function() {
+    $("#start-order-screen").slideUp(300, function () {
+      $("#pizza-ordering-container").slideDown(300);
+    });    
+  });
+
+
+
+	$("form#add-pizza").submit(function(event) {
+    event.preventDefault();
+    let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
+    myOrder.addPizza(pizza);
+    console.log(myOrder);
+  });
+
+
+});

@@ -8,6 +8,9 @@
   <title>Pizza Pizza</title>
 </head>
 <body>
+  <div class="container" id="start-order-screen">
+    <button class="btn btn-light" id="start-order-button">Start Order</button>
+  </div>
   <div class="container" id="pizza-ordering-container">
     <div class="card" id="pizza-ordering-card-container">
       <div class="card-title" id="pizza-ordering-header">
@@ -20,7 +23,7 @@
             <form id="add-pizza">
               <div class="form-group">
                 <label for="pizza-size">What size do you want?</label>
-                <select class="form-control" id="pizza-size">
+                <select class="form-control" id="pizza-size" required>
                   <option disabled selected value></option>
                   <option>Small</option>
                   <option>Medium</option>
@@ -28,25 +31,26 @@
                 </select>
               </div>
               <div id="toppings-menu">   
-                <p>Please select as many toppings as you'd like!</p>
-                <p>Each topping is an additional $1.</p>
+                <p>Each pizza comes with our secret sauce and homemade mozzarella, on top of our world famous dough.</p>
+                <p>If you'd like, you can add toppings to each pizza. Please select as many toppings as you'd like!</p>
+                <p class="subtext">Each topping is an additional $1.</p>
                 <div class="row">
                   <div class="col-4">
                     <h4>Meats</h4>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="pepperoni">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Pepperoni" id="pepperoni">
                       <label class="form-check-label" for="pepperoni">
                         Pepperoni
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="sausage" id="sausage">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Sausage" id="sausage">
                       <label class="form-check-label" for="sausage">
                         Sausage
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="chicken" id="five-cheese">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Chicken" id="five-cheese">
                       <label class="form-check-label" for="chicken">
                         Chicken
                       </label>
@@ -55,19 +59,19 @@
                   <div class="col-4">
                     <h4>Classics</h4>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="five-cheese">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Five Cheese" id="five-cheese">
                       <label class="form-check-label" for="five-cheese">
                         Five Cheese
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="mushroom">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Mushroom" id="mushroom">
                       <label class="form-check-label" for="mushroom">
                         Mushroom
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="pineapple">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Pineapple" id="pineapple">
                       <label class="form-check-label" for="pineapple">
                         Pineapple
                       </label>
@@ -76,26 +80,26 @@
                   <div class="col-4">
                     <h4>Veggies</h4>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="Onion">
+                      <input class="form-check-input" name="toppings"  type="checkbox" value="Onion" id="Onion">
                       <label class="form-check-label" for="Onion">
                         Onion
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="olives">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Olives" id="olives">
                       <label class="form-check-label" for="olives">
                         Olives
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="olives">
+                      <input class="form-check-input" name="toppings" type="checkbox" value="Peppers" id="olives">
                       <label class="form-check-label" for="peppers">
                         Peppers
                       </label>
                     </div>
                   </div> 
                 </div>
-                <div class="btn btn-dark" id="add-pizza-button">Add Pizza</div>
+                <button class="btn btn-dark" id="add-pizza-button">Add Pizza</button>
               </div>      
             </form>
           </div>
@@ -110,7 +114,30 @@
               </div>
               <div class="col-5 align-self-end">
                 $20<br><br>
-                <p>Remove Pizza</p>
+                <p><u>Remove Pizza</u></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row order-row">
+              <div class="col-7 order-col">
+                Large Pizza
+                <ul>
+                  <li>Sausage</li>
+                  <li>Five Cheese</li>
+                </ul>
+              </div>
+              <div class="col-5 align-self-end">
+                $20<br><br>
+                <p><u>Remove Pizza</u></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row align-self-end" id="totals-row">
+              <div class="col-7 order-col align-self-end">
+                Total:
+              </div>
+              <div class="col-5 align-self-end">
+                $40
               </div>
             </div>
           </div>
@@ -120,3 +147,6 @@
   </div>
 </body>
 </html>
+
+
+<!-- hide order column via removeing and adding classes to the main row -->

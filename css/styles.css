@@ -28,15 +28,21 @@
 }
 
 .order-row {
-  border-bottom: 1px solid #d0d0d0;
-  margin-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .order-col {
   border-right: 1px solid black;
 }
 
-#last-row {
-  border-bottom: 0px;
+hr {
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+}
+.subtext {
+  font-size: .85em;
+}
+.hidden {
+  display: none;
 }
