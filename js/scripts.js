@@ -8,13 +8,18 @@ function Pizza (toppings,size) {
 
 }
 
+Order.prototype.addPizza = (function (pizza) {
+  this.pizzas = pizza;
+})
+
+
+
+
+
 
 
 
 let myOrder = new Order(); 
 const pizza = new Pizza(["pineapple", "bacon"], 3);
-const pizza2 = new Pizza(["bacon"], 2);
-
+myOrder.addPizza(pizza);
 myOrder;
-pizza;
-pizza2;

@@ -38,14 +38,14 @@ Test: A pizza should be added to the order
 Code:  
 myOrder.addPizza(pizza)  
 myOrder;
-Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}
+Expected Output: Order {pizzas: {Pizza}}
 
 ### Describe Order.prototype.setPizzaID() 
 Test: An incremental ID should be assigned to each pizza added to order
 Code:  
-this.setPizzaID()
-
-Expected Output: 1, 2, 3, etc
+myOrder.addPizza(pizza);  
+myOrder;  
+Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}  
 
 ### Describe Pizza(toppings, size)  
 Test: "It should create a Pizza object, with toppings from a list and a size selected"  
