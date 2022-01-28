@@ -57,11 +57,7 @@ function getPizzaToppings() {
   return toppingsArray;
 }
 
-function clickHandlerForRemovePizza (id) {
-  $("#remove-pizza-" + id).on("click", function() {
-    $("#pizza-row-" + id).remove();
-  });
-}
+
 
 
 function addPizzaToOrderScreen (pizza) {
@@ -81,6 +77,13 @@ function addPizzaToOrderScreen (pizza) {
 
   pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + "<br><br><span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div></div><hr>";
   $("#current-pizza-list").html(pizzaOrderList);
+}
+
+function clickHandlerForRemovePizza (id) {
+  $("#remove-pizza-" + id).on("click", function() {
+    $("#pizza-row-" + id).remove();
+    console.log(id);
+  });
 }
 
 function resetInputs () {
