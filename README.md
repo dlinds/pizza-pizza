@@ -25,6 +25,36 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 _{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
 
+## Tests
+
+### Describe Order()
+Test: An order should be created that you can add pizzas to  
+Code:  
+let myOrder = new Order();  
+Order {pizzas: {…}}  
+  
+### Describe Order.prototype.addPizza(pizza) 
+Test: A pizza should be added to the order
+Code:  
+myOrder.addPizza(pizza)  
+myOrder;
+Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}
+
+### Describe Order.prototype.setPizzaID() 
+Test: An incremental ID should be assigned to each pizza added to order
+Code:  
+this.setPizzaID()
+
+Expected Output: 1, 2, 3, etc
+
+### Describe Pizza(toppings, size)  
+Test: "It should create a Pizza object, with toppings from a list and a size selected"  
+Code: const pizza = new Pizza(["pineapple", "bacon"], 3);  
+Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: 3 }  
+
+
+
+
 ## Known Bugs
 
 * _Any known issues_
