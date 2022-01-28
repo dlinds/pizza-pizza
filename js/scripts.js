@@ -61,8 +61,8 @@ function getPizzaToppings() {
 
 
 function addPizzaToOrderScreen (pizza) {
-  let pizzaOrderList = $("#current-pizza-list").html();
-  pizzaOrderList += "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\">" + pizza.size + " Pizza";
+
+  let pizzaOrderList = "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\">" + pizza.size + " Pizza";
   if (pizza.toppings.length === 9) {
     pizzaOrderList += "<ul><li>The Everything</li></ul>"
   } else if (pizza.toppings.length > 0) {
@@ -75,16 +75,11 @@ function addPizzaToOrderScreen (pizza) {
     pizzaOrderList += "<ul><li>Classic Cheese</li></ul>"
   }
 
-  pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + "<br><br><span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div></div><hr>";
-  $("#current-pizza-list").html(pizzaOrderList);
+  pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + "<br><br><span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div><hr class=\"order-divide\"></div>";
+  $("#current-pizza-list").append(pizzaOrderList);
 }
 
-function clickHandlerForRemovePizza (id) {
-  $("#remove-pizza-" + id).on("click", function() {
-    $("#pizza-row-" + id).remove();
-    console.log(id);
-  });
-}
+
 
 function resetInputs () {
   $("#pizza-size").val("");
@@ -96,6 +91,14 @@ function resetInputs () {
 function calculateTotal () {
   $("#totals-row").removeClass("hidden");
 }
+
+function clickHandlerForRemovePizza (id) {
+  $("#remove-pizza-" + id).on("click", function() {
+    $("#pizza-row-" + id).remove();
+    console.log(id);
+  });
+}
+
 
 $(document).ready(function() {
 
@@ -115,9 +118,10 @@ $(document).ready(function() {
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
     myOrder.addPizza(pizza);
     addPizzaToOrderScreen(pizza);
-    clickHandlerForRemovePizza(pizza.id);
+    
     calculateTotal();
     resetInputs();
+    clickHandlerForRemovePizza(pizza.id);
   });
 
 
