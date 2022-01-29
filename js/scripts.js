@@ -126,12 +126,14 @@ $(document).ready(function() {
     });    
   });
 
-
+  $("select#pizza-size").change(function() {
+    $("#toppings-menu").removeClass("hidden");
+  });
 
 	$("form#add-pizza").submit(function(event) {
     event.preventDefault();
-    $("#size-toppings-selection").removeClass("col-lg-12");
-    $("#size-toppings-selection").addClass("col-lg-8");
+    //$("#size-toppings-selection").removeClass("col-lg-12");
+    $("#size-toppings-selection").addClass("col-lg-7");
     $("#order-details-row").slideDown(100);
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
     myOrder.addPizza(pizza);

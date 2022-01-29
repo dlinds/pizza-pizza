@@ -12,6 +12,11 @@
   max-width: 100%;
 }
 
+#payment-button-row {
+  margin-top: 15%;
+  padding-bottom: 15px;
+}
+
 #about-text {
   padding: 1rem 0rem;
 }
@@ -19,6 +24,9 @@
   margin-top: 50px;
   margin-bottom: 15px;
   text-align: center;
+}
+#pizza-size {
+  width: 300px;
 }
 
 #start-order-button {
@@ -37,6 +45,7 @@
   padding: 15px;  
   padding-right: 30px;
   border-radius: 15px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 10px 10px;
 }
 #order-place-head {
   text-align: left;
@@ -45,6 +54,7 @@
   padding: 15px;
   padding-left: 30px;
   border-radius: 15px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 10px 10px;
 }
 #pizza-ordering-card-container {
   padding: 2%;
@@ -69,7 +79,11 @@
 }
 
 #toppings-menu {
-  margin-top: 5%;
+  margin-top: 2%;
+}
+
+#spacer-column {
+  width:4%;
 }
 
 .order-row {

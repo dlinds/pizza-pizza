@@ -45,19 +45,22 @@
       <div class="card-body">
         <p id="ordering-instructions">Please build your pizza(s) below. When you're finished, click Add to add the pizza to your order.</p>
         <div class="row">
-          <div class="col-lg-12 pizza-menu-columns" id="size-toppings-selection">
+          <div class="col-lg-7 pizza-menu-columns" id="size-toppings-selection">
             <h2 class="heading-2" id="order-place-head">Add a Pizza</h2>
             <form id="add-pizza">
-              <div class="form-group">
-                <label for="pizza-size">What size do you want?</label>
-                <select class="form-control" id="pizza-size" required>
-                  <option disabled selected value></option>
-                  <option>Small</option>
-                  <option>Medium</option>
-                  <option>Large</option>
-                </select>
+              <div class="form-group" id="choose-a-size">
+                <label for="pizza-size">
+                  <h4>First, choose a size:</h4>
+                </label>
+                    <select class="form-control" id="pizza-size" required>
+                      <option disabled selected value></option>
+                      <option>Small</option>
+                      <option>Medium</option>
+                      <option>Large</option>
+                    </select>
               </div>
-              <div id="toppings-menu">   
+              <div class="hidden" id="toppings-menu">   
+                <h4>Optionally, choose some toppings:</h4>
                 <p>Each pizza comes with our secret sauce and homemade mozzarella, on top of our world famous dough.</p>
                 <p>If you'd like, you can add toppings to each pizza. Please select as many toppings as you'd like!</p>
                 <p class="subtext">Each topping is an additional $1.</p>
@@ -130,6 +133,9 @@
               </div>      
             </form>
           </div>
+          <div class="col-lg-1">
+
+          </div>
           <div class="col-lg-4 pizza-menu-columns hidden" id="order-details-row">
             <h2 class="heading-2" id="order-details-head">Order Details</h2>
             <div id="current-pizza-list">
@@ -140,6 +146,13 @@
               </div>
               <div class="col-5 align-self-end">
                 <span id="total-USD">$40</span>
+              </div>
+            </div>
+            <div class="row" id="payment-button-row">
+              <div class="col-6">
+              </div>
+              <div class="col-6">
+                <button class="btn btn-dark" id="advance-to-order-screen">Proceed With Order</button>
               </div>
             </div>
           </div>
