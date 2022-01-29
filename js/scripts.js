@@ -93,6 +93,8 @@ function resetInputs () {
   $('input[name="toppings"]').each(function() {
     this.checked = false;
   });
+  $("#toppings-menu").slideUp(300);
+  $("#order-place-head").text("Add another Pizza!");
 }
 
 function calculateTotal () {
@@ -126,13 +128,18 @@ $(document).ready(function() {
     });    
   });
 
+  $("#advance-to-order-screen").click(function() {
+    $("#order-placed-screen").slideDown(300);
+    $("#pizza-ordering-container").slideUp(300);
+  });
+
   $("select#pizza-size").change(function() {
-    $("#toppings-menu").removeClass("hidden");
+    // $("#toppings-menu").removeClass("hidden");
+    $("#toppings-menu").slideDown(300);
   });
 
 	$("form#add-pizza").submit(function(event) {
     event.preventDefault();
-    //$("#size-toppings-selection").removeClass("col-lg-12");
     $("#size-toppings-selection").addClass("col-lg-7");
     $("#order-details-row").slideDown(100);
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());

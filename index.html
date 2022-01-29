@@ -133,8 +133,7 @@
               </div>      
             </form>
           </div>
-          <div class="col-lg-1">
-
+          <div class="col-lg-1" id="spacer-column">
           </div>
           <div class="col-lg-4 pizza-menu-columns hidden" id="order-details-row">
             <h2 class="heading-2" id="order-details-head">Order Details</h2>
@@ -149,10 +148,10 @@
               </div>
             </div>
             <div class="row" id="payment-button-row">
-              <div class="col-6">
+              <div class="col-7">
               </div>
-              <div class="col-6">
-                <button class="btn btn-dark" id="advance-to-order-screen">Proceed With Order</button>
+              <div class="col-5">
+                <button class="btn btn-dark" id="advance-to-order-screen">Proceed</button>
               </div>
             </div>
           </div>
@@ -161,8 +160,29 @@
     </div>
   </div>
   <div class="container hidden" id="order-placed-screen">
-    <h1 class="heading-1">Order Placed!</h1>
-    <button class="btn btn-light" id="order-placed-button">Place Another Order</button>
+    <div class="card" id="start-order-card">
+      <div id="start-screen-header">
+        <div class="row">
+          <div class="col-lg-5">
+            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+          </div>
+          <div class="col-lg-7">
+            <div class="card-title">
+              <h1 class="heading-1">Place your <em><strong>Pizza, pizza.</strong></em> order</h1>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div id="start-order-when-ready">
+        <div class="card-body" id="about-text">
+          <p>
+            Thanks for placing an order! Please input your address below. Once you're ready, hit the Place Order button to place the order.
+          </p>
+        </div>
+        <button class="btn btn-dark" id="start-order-button">Place Order</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
