@@ -68,9 +68,9 @@
                 </label>
                     <select class="form-control" id="pizza-size" required>
                       <option disabled selected value></option>
-                      <option>Small</option>
-                      <option>Medium</option>
-                      <option>Large</option>
+                      <option value="Small">Small ($10)</option>
+                      <option value="Medium">Medium ($15)</option>
+                      <option value="Large">Large ($20)</option>
                     </select>
               </div>
               <div class="hidden" id="toppings-menu">   
@@ -188,10 +188,30 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-3" style="border-right: 1px solid black; margin-top: 15px;">
+        <div class="col-3" id="order-placed-details-col">
           <h2 class="heading-2">Order Details</h2>
-          Pizza 1<br>
-          Pizza 2
+          <div id="finalize-order-list">
+            <!-- <div class="pizza-order-details-names" id="pizza-details-row-1">
+              <h5 class="heading-5 underline-pizza-name" id="pizza-details-item-1"><u>Small Pizza ($20) <span id="pizza-details-plus-minus-1">+</span></u></h5>
+              <ul class="hidden" id="pizza-details-ingredients-1">
+                <li>Five Cheese</li>
+                <li>Mushroom</li>
+              </ul>
+            </div>
+            <div id="finalize-totals">
+              <div class="row">
+                <div class="col-4">
+                  <span id="finalize-total-num-pizzas">3</span> Pizzas
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                  $<span id="finalize-total-cost-pizzas">30</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <button class="btn btn-light delivery-type" id="modify-order">Modify Order</button>
         </div>
         <div class="col-9">
           <div id="choose-order-type">

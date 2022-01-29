@@ -49,6 +49,26 @@
 .delivery-type:hover {
   background-color: #fadddd;;
 }
+#order-placed-details-col {
+  border-right: 1px solid #bababa; 
+  margin-top: 15px;
+}
+.pizza-order-details-names {
+  margin-bottom: 20px;
+}
+
+#modify-order {
+  margin-top: 15px;
+}
+#finalize-totals {
+  margin-top: 45px;
+  padding-top: 10px;
+  border-top: 1px solid #bababa;
+}
+
+.underline-pizza-name {
+  text-decoration: underline;
+}
 .delivery-type:focus {
   color: #fff;
   background-color: #212529;

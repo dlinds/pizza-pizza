@@ -88,6 +88,52 @@ function addPizzaToOrderScreen (pizza) {
   $("#current-pizza-list").append(pizzaOrderList);
 }
 
+function addPizzaToFinalizeScreen () {
+  $("#finalize-order-list").text("");
+  let totalPizzaCount = 0;
+  let totalPizzaPrice = 0;
+  Object.keys(myOrder.pizzas).forEach(function(key) {
+    let pizza = myOrder.findPizza(key);
+    let finalizeOrderList = "";
+    totalPizzaPrice += pizza.price;
+    totalPizzaCount++;
+    finalizeOrderList += "<div class=\"pizza-order-details-names\" id=\"pizza-details-row-" + pizza.id + "\"><h5 class=\"heading-5 underline-pizza-name\" id=\"pizza-details-item-" + pizza.id + "\">" + pizza.size + " Pizza ($" + pizza.price + ") <span id=\"pizza-details-plus-minus-" + pizza.id + "\">+</span></h5>";
+    if (pizza.toppings.length === 9) {
+      finalizeOrderList += "<ul class=\"hidden\" id=\"pizza-details-ingredients-" + pizza.id + "\"><li>The Everything</li></ul>"
+    } else if (pizza.toppings.length > 0) {
+      finalizeOrderList += "<ul class=\"hidden\" id=\"pizza-details-ingredients-" + pizza.id + "\">";
+      pizza.toppings.forEach(function(topping) {
+        finalizeOrderList += "<li>" + topping + "</li>"
+      })
+      finalizeOrderList += "</ul>";
+    } else {
+      finalizeOrderList += "<ul class=\"hidden\" id=\"pizza-details-ingredients-"+ pizza.id + "\"><li>Classic Cheese</li></ul>"
+    }
+    finalizeOrderList += "</div>";
+    $("#finalize-order-list").append(finalizeOrderList);
+    clickHandlerFinalizeOrderDetails(pizza.id);
+  });
+  if (totalPizzaCount === 1) {
+    $("#finalize-order-list").append("<div id=\"finalize-totals\"><div class=\"row\"><div class=\"col-4\"><span id=\"finalize-total-num-pizzas\">" + totalPizzaCount +"</span> Pizza</div><div class=\"col-4\"></div><div class=\"col-4\">$<span id=\"finalize-total-cost-pizzas\">" + totalPizzaPrice + "</span></div></div></div>");
+  } else {
+    $("#finalize-order-list").append("<div id=\"finalize-totals\"><div class=\"row\"><div class=\"col-4\"><span id=\"finalize-total-num-pizzas\">" + totalPizzaCount +"</span> Pizzas</div><div class=\"col-4\"></div><div class=\"col-4\">$<span id=\"finalize-total-cost-pizzas\">" + totalPizzaPrice + "</span></div></div></div>");
+  }
+  
+}
+
+function clickHandlerFinalizeOrderDetails (id) {
+  $("#pizza-details-item-" + id).on("click", function() {
+    $("#pizza-details-ingredients-" + id).slideToggle(100);
+    if ($("#pizza-details-plus-minus-" + id).text() === "+") {
+      $("#pizza-details-item-" + id).removeClass("underline-pizza-name");
+      $("#pizza-details-plus-minus-" + id).text("-");
+    } else {
+      $("#pizza-details-item-" + id).addClass("underline-pizza-name");
+      $("#pizza-details-plus-minus-" + id).text("+");
+    }
+  });
+}
+
 function resetInputs () {
   $("#pizza-size").val("");
   $('input[name="toppings"]').each(function() {
@@ -119,7 +165,6 @@ function clickHandlerForRemovePizza (id) {
   });
 }
 
-
 $(document).ready(function() {
 
   $("#start-order-button").on("click", function() {
@@ -129,12 +174,24 @@ $(document).ready(function() {
   });
 
   $("#advance-to-order-screen").click(function() {
+    addPizzaToFinalizeScreen();
     $("#order-placed-screen").slideDown(300);
     $("#pizza-ordering-container").slideUp(300);
   });
 
   $("select#pizza-size").change(function() {
     $("#toppings-menu").slideDown(300);
+  });
+
+  $("#modify-order").click(function() {
+    resetInputs();
+    $("#pizza-ordering-container").slideDown(300);
+    $("#order-placed-screen").slideUp(300);
+    $("#pickup-details-card").hide();
+    $("#delivery-details-card").hide();
+    $("#place-your-order-container").hide();
+    $("button#pickup").removeClass("selected-button");
+    $("button#delivery").removeClass("selected-button");
   });
 
   $("button#pickup").click(function() {
@@ -144,6 +201,7 @@ $(document).ready(function() {
     $("button#pickup").addClass("selected-button");
     $("button#delivery").removeClass("selected-button");
   });
+  
   $("button#delivery").click(function() {
     $("#pickup-details-card").slideUp(200);
     $("#delivery-details-card").slideDown(200);
