@@ -23,6 +23,10 @@ Order.prototype.deletePizza = (function (id) {
   return true;
 });
 
+Order.prototype.findPizza = function (id) {
+  return this.pizzas[id];
+}
+
 function Pizza (toppings,size) {
   this.toppings = toppings;
   this.size = size;
@@ -67,7 +71,7 @@ function getPizzaToppings() {
 
 function addPizzaToOrderScreen (pizza) {
 
-  let pizzaOrderList = "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\">" + pizza.size + " Pizza";
+  let pizzaOrderList = "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\"><h5 class=\"heading-5\">" + pizza.size + " Pizza</h5>";
   if (pizza.toppings.length === 9) {
     pizzaOrderList += "<ul><li>The Everything</li></ul>"
   } else if (pizza.toppings.length > 0) {
@@ -92,6 +96,16 @@ function resetInputs () {
 }
 
 function calculateTotal () {
+  
+  let totalPizzaCount = 0;
+  let totalPizzaPrice = 0;
+  Object.keys(myOrder.pizzas).forEach(function(key) {
+    let pizza = myOrder.findPizza(key);
+    totalPizzaPrice += pizza.price;
+    totalPizzaCount++;
+  });
+  $("#total-pizza-count").text(totalPizzaCount);
+  $("#total-USD").text("$" + totalPizzaPrice);
   $("#totals-row").removeClass("hidden");
 }
 
@@ -99,6 +113,7 @@ function clickHandlerForRemovePizza (id) {
   $("#remove-pizza-" + id).on("click", function() {
     $("#pizza-row-" + id).remove();
     myOrder.deletePizza(id);
+    calculateTotal();
   });
 }
 
@@ -116,12 +131,11 @@ $(document).ready(function() {
 	$("form#add-pizza").submit(function(event) {
     event.preventDefault();
     $("#size-toppings-selection").removeClass("col-lg-12");
-    $("#size-toppings-selection").addClass("col-lg-7");
-    $("#order-details-row").removeClass("hidden");
+    $("#size-toppings-selection").addClass("col-lg-8");
+    $("#order-details-row").slideDown(100);
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
     myOrder.addPizza(pizza);
     addPizzaToOrderScreen(pizza);
-    
     calculateTotal();
     resetInputs();
     clickHandlerForRemovePizza(pizza.id);

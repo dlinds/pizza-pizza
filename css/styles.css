@@ -30,6 +30,22 @@
   border-radius: 15px;
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 10px;
 }
+#order-details-head {
+  text-align: right;
+  margin-bottom: 1em;
+  background-color: #fadddd;
+  padding: 15px;  
+  padding-right: 30px;
+  border-radius: 15px;
+}
+#order-place-head {
+  text-align: left;
+  margin-bottom: 1em;
+  background-color: #fadddd;
+  padding: 15px;
+  padding-left: 30px;
+  border-radius: 15px;
+}
 #pizza-ordering-card-container {
   padding: 2%;
 }
@@ -43,7 +59,7 @@
 .pizza-menu-columns {
   border: 1px solid #d0d0d0;
   margin-top: 2%;
-  padding-top: 5%;
+  padding-top: 1%;
 }
 #add-pizza {
   padding: 0px 15px 15px 15px;

@@ -46,6 +46,7 @@
         <p id="ordering-instructions">Please build your pizza(s) below. When you're finished, click Add to add the pizza to your order.</p>
         <div class="row">
           <div class="col-lg-12 pizza-menu-columns" id="size-toppings-selection">
+            <h2 class="heading-2" id="order-place-head">Add a Pizza</h2>
             <form id="add-pizza">
               <div class="form-group">
                 <label for="pizza-size">What size do you want?</label>
@@ -129,15 +130,16 @@
               </div>      
             </form>
           </div>
-          <div class="col-lg-5 pizza-menu-columns hidden" id="order-details-row">
+          <div class="col-lg-4 pizza-menu-columns hidden" id="order-details-row">
+            <h2 class="heading-2" id="order-details-head">Order Details</h2>
             <div id="current-pizza-list">
             </div>
             <div class="row align-self-end hidden" id="totals-row">
               <div class="col-7 order-col align-self-end">
-                Total:
+                Total: <span id="total-pizza-count">3</span> Pizzas
               </div>
               <div class="col-5 align-self-end">
-                $40
+                <span id="total-USD">$40</span>
               </div>
             </div>
           </div>
