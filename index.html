@@ -39,8 +39,22 @@
   </div>
   <div class="container hidden" id="pizza-ordering-container">
     <div class="card" id="pizza-ordering-card-container">
-      <div class="card-title pizza-ordering-header">
-        <h3 class="heading-3">Place your order below!</h3>
+      <div id="start-screen-header">
+        <div class="row">
+          <div class="col-lg-5">
+            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+          </div>
+          <div class="col-lg-7">
+            <div class="card-title">
+              <h1 class="heading-1">Pick your pizzas</strong></em></h1>
+            </div>
+            <div class="card-body" id="about-text">
+              <p>
+                First, choose a size. 
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <p id="ordering-instructions">Please build your pizza(s) below. When you're finished, click Add to add the pizza to your order.</p>
@@ -159,7 +173,7 @@
       </div>
     </div>
   </div>
-  <div class="container hidden" id="order-placed-screen">
+  <div class="container" id="order-placed-screen">
     <div class="card" id="start-order-card">
       <div id="start-screen-header">
         <div class="row">
@@ -168,19 +182,54 @@
           </div>
           <div class="col-lg-7">
             <div class="card-title">
-              <h1 class="heading-1">Place your <em><strong>Pizza, pizza.</strong></em> order</h1>
+              <h1 class="heading-1">Finalize your order</strong></em></h1>
             </div>
-            
           </div>
         </div>
       </div>
-      <div id="start-order-when-ready">
-        <div class="card-body" id="about-text">
-          <p>
-            Thanks for placing an order! Please input your address below. Once you're ready, hit the Place Order button to place the order.
-          </p>
+      <div class="row">
+        <div class="col-3" style="border-right: 1px solid black; margin-top: 15px;">
+          <h2 class="heading-2">Order Details</h2>
+          Pizza 1<br>
+          Pizza 2
         </div>
-        <button class="btn btn-dark" id="start-order-button">Place Order</button>
+        <div class="col-9">
+          <div id="choose-order-type">
+            <div class="card-title" id="when-ready-card-heading">
+              <h2 class="heading-2">Thanks!</h2>
+              <h5>How do you want to receive this order?</h5>
+            </div>
+            <div class="card-body">
+              <button class="btn btn-light delivery-type" id="pickup">
+                Pickup
+              </button>
+              <button class="btn btn-light delivery-type" id="delivery">
+                Delivery
+              </button>
+            </div>
+            <button class="btn btn-dark hidden" id="start-order-button">Start Order</button>
+          </div>
+          <div class="card-body" id="pickup-details-card">
+            <p>Great! Select a time for your pickup. Once you're ready, click the Place Order button below and we will start making your order right away!</p>
+            <div class="row">
+              <div class="col-3">
+              </div>
+              <div class="col-3">
+                <input type="radio" id="-asap-pickup-time" name="asap-pickup-time"><br>
+                <small>ASAP</small>
+              </div>
+              <div class="col-3">
+                <input type="time" id="pickup-time" name="pickup-time" min="12:00" max="22:00" step="3600"><br>
+                <small>Operating hours are between 12:00PM and 11:00PM</small>
+              </div>
+              <div class="col-3">
+              </div>
+            </div>
+          </div>
+          <div id="place-your-order-container">
+            <button class="btn btn-light delivery-type" id="place-the-order-button">Place Order</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

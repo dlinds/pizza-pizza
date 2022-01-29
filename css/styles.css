@@ -25,14 +25,34 @@
   margin-bottom: 15px;
   text-align: center;
 }
+#choose-order-type {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
 #pizza-size {
   width: 300px;
+}
+#pickup-details-card {
+  text-align: center;
+}
+.delivery-type {
+  background-color: #dadada;
+}
+.delivery-type:hover {
+  background-color: #fadddd;;
+}
+.delivery-type:focus {
+  color: #fff;
+  background-color: #212529;
+  border-color: #004386;
+  box-shadow: 0 0 0 0.25rem rgb(250 221 221);
 }
 
 #start-order-button {
   margin-top: 2%;
 }
-#pizza-ordering-container, #start-order-screen {
+#pizza-ordering-container, #start-order-screen, #order-placed-screen {
   padding: 2%;
   margin-top: 3%;
   border-radius: 15px;
@@ -109,3 +129,7 @@
   color: black;
 }
 
+#place-your-order-container {
+  text-align: center;
+  margin-top: 25px;
+}
