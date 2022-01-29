@@ -1,20 +1,28 @@
-#start-screen-header{
+.screen-header {
   background-color: #fadddd;
   border-radius: 15px;
   text-align: left;
   padding: 1em;
 }
-#start-order-card {
+#start-order-card, #finalize-order-card {
   border-radius: 15px;
   padding: 20px;
 }
-#pizza-logo {
+.pizza-logo {
   max-width: 100%;
 }
 
 #payment-button-row {
   margin-top: 5%;
   padding-bottom: 15px;
+}
+.center {
+  text-align: center;
+}
+
+.large-top-margin {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 #about-text {
@@ -85,7 +93,7 @@
 #start-order-button {
   margin-top: 2%;
 }
-#pizza-ordering-container, #start-order-screen, #order-placed-screen {
+.menu-containers {
   padding: 2%;
   margin-top: 3%;
   border-radius: 15px;

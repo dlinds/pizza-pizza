@@ -8,12 +8,12 @@
   <title>Pizza, pizza.</title>
 </head>
 <body>
-  <div class="container" id="start-order-screen">
+  <div class="container menu-containers" id="start-order-screen">
     <div class="card" id="start-order-card">
-      <div id="start-screen-header">
+      <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
-            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+            <img src="img/pizza-logo.png" class="pizza-logo" alt="Pizza, pizza. icon">
           </div>
           <div class="col-lg-7">
             <div class="card-title">
@@ -37,12 +37,12 @@
       
     </div>
   </div>
-  <div class="container hidden" id="pizza-ordering-container">
+  <div class="container menu-containers hidden" id="pizza-ordering-container">
     <div class="card" id="pizza-ordering-card-container">
-      <div id="start-screen-header">
+      <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
-            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+            <img src="img/pizza-logo.png" class="pizza-logo" alt="Pizza, pizza. icon">
           </div>
           <div class="col-lg-7">
             <div class="card-title">
@@ -173,12 +173,12 @@
       </div>
     </div>
   </div>
-  <div class="container hidden" id="order-placed-screen">
-    <div class="card" id="start-order-card">
-      <div id="start-screen-header">
+  <div class="container menu-containers hidden" id="order-placed-screen">
+    <div class="card" id="finalize-order-card">
+      <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
-            <img src="img/pizza-logo.png" id="pizza-logo" alt="Pizza, pizza. icon">
+            <img src="img/pizza-logo.png" class="pizza-logo" alt="Pizza, pizza. icon">
           </div>
           <div class="col-lg-7">
             <div class="card-title">
@@ -191,25 +191,6 @@
         <div class="col-3" id="order-placed-details-col">
           <h2 class="heading-2">Order Details</h2>
           <div id="finalize-order-list">
-            <!-- <div class="pizza-order-details-names" id="pizza-details-row-1">
-              <h5 class="heading-5 underline-pizza-name" id="pizza-details-item-1"><u>Small Pizza ($20) <span id="pizza-details-plus-minus-1">+</span></u></h5>
-              <ul class="hidden" id="pizza-details-ingredients-1">
-                <li>Five Cheese</li>
-                <li>Mushroom</li>
-              </ul>
-            </div>
-            <div id="finalize-totals">
-              <div class="row">
-                <div class="col-4">
-                  <span id="finalize-total-num-pizzas">3</span> Pizzas
-                </div>
-                <div class="col-4">
-                </div>
-                <div class="col-4">
-                  $<span id="finalize-total-cost-pizzas">30</span>
-                </div>
-              </div>
-            </div> -->
           </div>
           <button class="btn btn-light delivery-type" id="modify-order">Modify Order</button>
         </div>
@@ -236,8 +217,8 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                  <input type="name" class="form-control address-input" name="pickup-name" id="pickup-name" placeholder="Name">
-                  <input type="tel" class="form-control address-input" name="pickup-tel" id="pickup-tel" placeholder="Phone Number">
+                  <input type="text" class="form-control address-input" name="pickup-name" id="pickup-name" placeholder="Name">
+                  <input type="text" class="form-control address-input" name="pickup-tel" id="pickup-tel" placeholder="Phone Number">
                 </div>
               </div>
               <div class="col-5">
@@ -266,7 +247,7 @@
                 <hr>
                 <div class="form-group">
                   <input type="text" class="form-control address-input" name="delivery-name" id="delivery-name" placeholder="Name">
-                  <input type="tel" class="form-control address-input" name="delivery-tel" id="delivery-tel" placeholder="Phone Number">
+                  <input type="text" class="form-control address-input" name="delivery-tel" id="delivery-tel" placeholder="Phone Number">
                   <input type="text" class="form-control address-input" name="delivery-address" id="delivery-address" placeholder="Street Address">
                   <input type="text" class="form-control address-input" name="delivery-city" id="delivery-city" placeholder="City">
                   <input type="number" class="form-control address-input" name="delivery-zip" id="delivery-zip" placeholder="ZIP">
@@ -293,6 +274,27 @@
             <button class="btn btn-light delivery-type" id="place-the-order-button">Place Order</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="container hidden menu-containers " id="processing-order">
+    <div class="card" id="finalize-order-card">
+      <div class="screen-header">
+        <div class="row">
+          <div class="col-lg-5">
+            <img src="img/pizza-logo.png" class="pizza-logo" alt="Pizza, pizza. icon">
+          </div>
+          <div class="col-lg-7">
+            <div class="card-title">
+              <h1 class="heading-1">Processing your order</strong></em></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body center large-top-margin" >
+        <h1 class="heading-1 hidden" id="processing-status">Processing Your Order</h1>
+      </div>
+      <div class='hidden center' id="finished-message">
       </div>
     </div>
   </div>

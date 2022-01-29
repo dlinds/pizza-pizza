@@ -165,6 +165,34 @@ function clickHandlerForRemovePizza (id) {
   });
 }
 
+function processOrder () {
+  $("#processing-status").text("Processing Your Order");
+  $("#processing-status").fadeIn(1000);
+  $("#processing-status").fadeOut(1000, function() {
+    $("#processing-status").text("Making the pizzas");
+  });
+  $("#processing-status").fadeIn(1000, function() {
+    $("#processing-status").fadeOut(1000, function() {
+      $("#processing-status").text("Order Complete!");
+      $("#processing-status").fadeIn(1000, function () {
+        $("#finished-message").removeClass("hidden");
+        createFinalMessage();
+      });
+    });
+  });
+}
+
+function createFinalMessage () {
+
+  if ($("#pickup-name").val().length > 0) {
+    //console.log($("#pickup-name").val());
+    $("#finished-message").html("Thanks " + $("#pickup-name").val() + "! Your pickup order has been placed! We should have it ready in about 20 minutes. For driving directions, please click here: <a href=\https:google.com\\maps\">Google Maps</a>. If we don't see you in the next hour or so, we will give you a call at " + $("#pickup-tel").val() + ". <br><br>Thanks again and see you soon!");
+  } else {
+    //console.log($("#delivery-name").val());
+    $("#finished-message").html("Thanks " + $("#delivery-name").val() + "! Your delivery order has been placed. In the next 30 or so minutes, we will make a delivery to<br>" + $("#delivery-address").val() + "<br>" + $("#delivery-city").val() + "<br>" + $("#delivery-zip").val() + "<br><br>. If we have any issues, we will give you a call at " + $("#delivery-tel").val() + ".<br><br>Thanks again and see you soon!");
+  }
+}
+
 $(document).ready(function() {
 
   $("#start-order-button").on("click", function() {
@@ -201,7 +229,7 @@ $(document).ready(function() {
     $("button#pickup").addClass("selected-button");
     $("button#delivery").removeClass("selected-button");
   });
-  
+
   $("button#delivery").click(function() {
     $("#pickup-details-card").slideUp(200);
     $("#delivery-details-card").slideDown(200);
@@ -224,6 +252,13 @@ $(document).ready(function() {
 
   $("#pickup-asap-time").click(function () {
     $("#choose-pickup-time").slideUp(300);
+  });
+
+  $("#place-the-order-button").click(function () {
+    $("#order-placed-screen").slideUp(300);
+    $("#processing-order").slideDown(300, function() {
+      processOrder();
+    });
   });
 
 	$("form#add-pizza").submit(function(event) {
