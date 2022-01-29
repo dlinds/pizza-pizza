@@ -33,8 +33,15 @@
 #pizza-size {
   width: 300px;
 }
-#pickup-details-card {
-  text-align: center;
+
+.address-input {
+  margin-top: 2%;
+}
+#delivery-time, #delivery-asap-time {
+  margin-top: 5%;
+}
+#pickup-time, #pickup-asap-time {
+  margin-top: 5%;
 }
 .delivery-type {
   background-color: #dadada;
@@ -43,6 +50,12 @@
   background-color: #fadddd;;
 }
 .delivery-type:focus {
+  color: #fff;
+  background-color: #212529;
+  border-color: #004386;
+  box-shadow: 0 0 0 0.25rem rgb(250 221 221);
+}
+.selected-button {
   color: #fff;
   background-color: #212529;
   border-color: #004386;

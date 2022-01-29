@@ -134,8 +134,38 @@ $(document).ready(function() {
   });
 
   $("select#pizza-size").change(function() {
-    // $("#toppings-menu").removeClass("hidden");
     $("#toppings-menu").slideDown(300);
+  });
+
+  $("button#pickup").click(function() {
+    $("#pickup-details-card").slideDown(200);
+    $("#delivery-details-card").slideUp(200);
+    $("#place-your-order-container").slideDown(200);
+    $("button#pickup").addClass("selected-button");
+    $("button#delivery").removeClass("selected-button");
+  });
+  $("button#delivery").click(function() {
+    $("#pickup-details-card").slideUp(200);
+    $("#delivery-details-card").slideDown(200);
+    $("#place-your-order-container").slideDown(200);
+    $("button#pickup").removeClass("selected-button");
+    $("button#delivery").addClass("selected-button");
+  });
+
+  $("#delivery-choose-time").click(function () {
+    $("#choose-delivery-time").slideDown(300);
+  });
+
+  $("#delivery-asap-time").click(function () {
+    $("#choose-delivery-time").slideUp(300);
+  });
+
+  $("#pickup-choose-time").click(function () {
+    $("#choose-pickup-time").slideDown(300);
+  });
+
+  $("#pickup-asap-time").click(function () {
+    $("#choose-pickup-time").slideUp(300);
   });
 
 	$("form#add-pizza").submit(function(event) {

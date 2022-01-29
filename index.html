@@ -173,7 +173,7 @@
       </div>
     </div>
   </div>
-  <div class="container" id="order-placed-screen">
+  <div class="container hidden" id="order-placed-screen">
     <div class="card" id="start-order-card">
       <div id="start-screen-header">
         <div class="row">
@@ -207,26 +207,69 @@
                 Delivery
               </button>
             </div>
-            <button class="btn btn-dark hidden" id="start-order-button">Start Order</button>
           </div>
-          <div class="card-body" id="pickup-details-card">
-            <p>Great! Select a time for your pickup. Once you're ready, click the Place Order button below and we will start making your order right away!</p>
+          <div class="card-body hidden" id="pickup-details-card">
             <div class="row">
-              <div class="col-3">
+              <div class="col-7">
+                <div>
+                  Who will be picking up the order?
+                </div>
+                <hr>
+                <div class="form-group">
+                  <input type="name" class="form-control address-input" name="pickup-name" id="pickup-name" placeholder="Name">
+                  <input type="tel" class="form-control address-input" name="pickup-tel" id="pickup-tel" placeholder="Phone Number">
+                </div>
               </div>
-              <div class="col-3">
-                <input type="radio" id="-asap-pickup-time" name="asap-pickup-time"><br>
-                <small>ASAP</small>
-              </div>
-              <div class="col-3">
-                <input type="time" id="pickup-time" name="pickup-time" min="12:00" max="22:00" step="3600"><br>
-                <small>Operating hours are between 12:00PM and 11:00PM</small>
-              </div>
-              <div class="col-3">
+              <div class="col-5">
+                <div>
+                  When you want to pick it up?
+                </div>
+                <hr>
+                <input type="radio" id="pickup-asap-time" name="pickup-choice">
+                ASAP
+                <br>
+                <input type="radio" id="pickup-choose-time" name="pickup-choice">
+                Choose a time
+                <div class="hidden" id="choose-pickup-time">
+                  <input type="time" id="pickup-time" name="pickup-time" min="12:00" max="22:00" step="3600"><br>
+                  <small>Operating hours: 12:00PM - 11:00PM</small>
+                </div>                
               </div>
             </div>
           </div>
-          <div id="place-your-order-container">
+          <div class="card-body hidden" id="delivery-details-card">
+            <div class="row">
+              <div class="col-7">
+                <div>
+                  Who are we delivering the order to?
+                </div>
+                <hr>
+                <div class="form-group">
+                  <input type="text" class="form-control address-input" name="delivery-name" id="delivery-name" placeholder="Name">
+                  <input type="tel" class="form-control address-input" name="delivery-tel" id="delivery-tel" placeholder="Phone Number">
+                  <input type="text" class="form-control address-input" name="delivery-address" id="delivery-address" placeholder="Street Address">
+                  <input type="text" class="form-control address-input" name="delivery-city" id="delivery-city" placeholder="City">
+                  <input type="number" class="form-control address-input" name="delivery-zip" id="delivery-zip" placeholder="ZIP">
+                </div>
+              </div>
+              <div class="col-5">
+                <div>
+                  When should we deliver it?
+                </div>
+                <hr>
+                <input type="radio" id="delivery-asap-time" name="delivery-asap-choice">
+                ASAP
+                <br>
+                <input type="radio" id="delivery-choose-time" name="delivery-asap-choice">
+                Choose a time
+                <div class="hidden" id="choose-delivery-time">
+                  <input type="time" id="delivery-time" name="delivery-time" min="12:00" max="22:00" step="3600"><br>
+                  <small>Operating hours: 12:00PM - 11:00PM</small>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="hidden" id="place-your-order-container">
             <button class="btn btn-light delivery-type" id="place-the-order-button">Place Order</button>
           </div>
         </div>
