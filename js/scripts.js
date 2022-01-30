@@ -70,21 +70,24 @@ function getPizzaToppings() {
 }
 
 function addPizzaToOrderScreen (pizza) {
-
+  let breakCount = "";
   let pizzaOrderList = "<div class=\"row order-row\" id=\"pizza-row-"+ pizza.id + "\"><div class=\"col-7 order-col\"><h5 class=\"heading-5\">" + pizza.size + " Pizza</h5>";
   if (pizza.toppings.length === 9) {
-    pizzaOrderList += "<ul><li>The Everything</li></ul>"
+    pizzaOrderList += "<ul><li>The Everything</li></ul>";
+    breakCount = "<br><br>";
   } else if (pizza.toppings.length > 0) {
     pizzaOrderList += "<ul>";
     pizza.toppings.forEach(function (topping) {
       pizzaOrderList += "<li>" + topping + "</li>";
+      breakCount += "<br>";
     });
     pizzaOrderList += "</ul>";
   } else {
-    pizzaOrderList += "<ul><li>Classic Cheese</li></ul>"
+    pizzaOrderList += "<ul><li>Classic Cheese</li></ul>";
+    breakCount = "<br><br>";
   }
 
-  pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + "<br><br><span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div><hr class=\"order-divide\"></div>";
+  pizzaOrderList += "</div><div class=\"col-5 align-self-end\">$" + pizza.price + breakCount + "<span class=\"btn btn-dark remove-pizza-button\" id=\"remove-pizza-" + pizza.id + "\"><u>Remove Pizza</u></span></div><hr class=\"order-divide\"></div>";
   $("#current-pizza-list").append(pizzaOrderList);
 }
 
@@ -141,6 +144,15 @@ function resetInputs () {
   });
   $("#toppings-menu").slideUp(300);
   $("#order-place-head").text("Add another Pizza!");
+
+  $("#pickup-name").val("");
+  $("#pickup-tel").val("");
+
+  $("#delivery-name").val("");
+  $("#delivery-tel").val("");
+  $("#delivery-address").val("");
+  $("#delivery-city").val("");
+  $("#delivery-zip").val("");
 }
 
 function calculateTotal () {
@@ -169,14 +181,15 @@ function processOrder () {
   $("#processing-status").text("Processing Your Order");
   $("#processing-status").fadeIn(1000);
   $("#processing-status").fadeOut(1000, function() {
-    $("#processing-status").text("Making the pizzas");
+    $("#processing-status").text("Preparing the ingredients");
   });
   $("#processing-status").fadeIn(1000, function() {
     $("#processing-status").fadeOut(1000, function() {
-      $("#processing-status").text("Order Complete!");
+      $("#processing-status").text("Order Successfully Placed");
       $("#processing-status").fadeIn(1000, function () {
         $("#finished-message").removeClass("hidden");
         createFinalMessage();
+        $("#place-another-order").slideDown(1000);
       });
     });
   });
@@ -185,11 +198,17 @@ function processOrder () {
 function createFinalMessage () {
 
   if ($("#pickup-name").val().length > 0) {
-    //console.log($("#pickup-name").val());
-    $("#finished-message").html("Thanks " + $("#pickup-name").val() + "! Your pickup order has been placed! We should have it ready in about 20 minutes. For driving directions, please click here: <a href=\https:google.com\\maps\">Google Maps</a>. If we don't see you in the next hour or so, we will give you a call at " + $("#pickup-tel").val() + ". <br><br>Thanks again and see you soon!");
+    let time = "in about 20 minutes";
+    if ($('#pickup-choose-time').is(':checked')) { 
+      time = "at " + $('#pickup-time').val();
+    }
+    $("#finished-message").html("Thanks " + $("#pickup-name").val() + "! Your pickup order has been placed! We should have it ready " + time + ". For driving directions, please click here: <a href=\"https:google.com.maps\" target=\"_blank\">Google Maps</a>. If we don't see you within about 30 minutes from the pickup time, we will give you a call at " + $("#pickup-tel").val() + ". <br><br>Thanks again and see you soon!");
   } else {
-    //console.log($("#delivery-name").val());
-    $("#finished-message").html("Thanks " + $("#delivery-name").val() + "! Your delivery order has been placed. In the next 30 or so minutes, we will make a delivery to<br>" + $("#delivery-address").val() + "<br>" + $("#delivery-city").val() + "<br>" + $("#delivery-zip").val() + "<br><br>. If we have any issues, we will give you a call at " + $("#delivery-tel").val() + ".<br><br>Thanks again and see you soon!");
+    let time = "In the next 30 or so minutes";
+    if ($('#delivery-choose-time').is(':checked')) { 
+      time = "At " + $('#delivery-time').val();
+    }
+    $("#finished-message").html("Thanks " + $("#delivery-name").val() + "! Your delivery order has been placed. " + time + ", we will make a delivery to<br><br>" + $("#delivery-address").val() + "<br>" + $("#delivery-city").val() + "<br>" + $("#delivery-zip").val() + "<br><br>If we have any issues, we will give you a call at " + $("#delivery-tel").val() + ".<br><br>Thanks again and see you soon!");
   }
 }
 
@@ -211,6 +230,10 @@ $(document).ready(function() {
     $("#toppings-menu").slideDown(300);
   });
 
+  $("#place-another-order").click(function() {
+    location.reload(true);
+  });
+
   $("#modify-order").click(function() {
     resetInputs();
     $("#pizza-ordering-container").slideDown(300);
@@ -223,6 +246,7 @@ $(document).ready(function() {
   });
 
   $("button#pickup").click(function() {
+    resetInputs();
     $("#pickup-details-card").slideDown(200);
     $("#delivery-details-card").slideUp(200);
     $("#place-your-order-container").slideDown(200);
@@ -231,6 +255,7 @@ $(document).ready(function() {
   });
 
   $("button#delivery").click(function() {
+    resetInputs();
     $("#pickup-details-card").slideUp(200);
     $("#delivery-details-card").slideDown(200);
     $("#place-your-order-container").slideDown(200);
@@ -263,7 +288,10 @@ $(document).ready(function() {
 
 	$("form#add-pizza").submit(function(event) {
     event.preventDefault();
+    $("#size-toppings-selection").removeClass("col-lg-12");
     $("#size-toppings-selection").addClass("col-lg-7");
+    $("#ingredients-row").removeClass("width-50");
+    $("#spacer-column").removeClass("hidden");
     $("#order-details-row").slideDown(100);
     let pizza = new Pizza(getPizzaToppings(),$("#pizza-size").val());
     myOrder.addPizza(pizza);

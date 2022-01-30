@@ -59,7 +59,7 @@
       <div class="card-body">
         <p id="ordering-instructions">Please build your pizza(s) below. When you're finished, click Add to add the pizza to your order.</p>
         <div class="row">
-          <div class="col-lg-7 pizza-menu-columns" id="size-toppings-selection">
+          <div class="col-lg-12 pizza-menu-columns" id="size-toppings-selection">
             <h2 class="heading-2" id="order-place-head">Add a Pizza</h2>
             <form id="add-pizza">
               <div class="form-group" id="choose-a-size">
@@ -78,7 +78,7 @@
                 <p>Each pizza comes with our secret sauce and homemade mozzarella, on top of our world famous dough.</p>
                 <p>If you'd like, you can add toppings to each pizza. Please select as many toppings as you'd like!</p>
                 <p class="subtext">Each topping is an additional $1.</p>
-                <div class="row">
+                <div class="row width-50" id="ingredients-row">
                   <div class="col-4">
                     <h4>Meats</h4>
                     <div class="form-check">
@@ -147,7 +147,7 @@
               </div>      
             </form>
           </div>
-          <div class="col-lg-1" id="spacer-column">
+          <div class="col-lg-1 hidden" id="spacer-column">
           </div>
           <div class="col-lg-4 pizza-menu-columns hidden" id="order-details-row">
             <h2 class="heading-2" id="order-details-head">Order Details</h2>
@@ -162,9 +162,7 @@
               </div>
             </div>
             <div class="row" id="payment-button-row">
-              <div class="col-7">
-              </div>
-              <div class="col-5">
+              <div class="col-12">
                 <button class="btn btn-dark" id="advance-to-order-screen">Proceed</button>
               </div>
             </div>
@@ -217,8 +215,8 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                  <input type="text" class="form-control address-input" name="pickup-name" id="pickup-name" placeholder="Name">
-                  <input type="text" class="form-control address-input" name="pickup-tel" id="pickup-tel" placeholder="Phone Number">
+                  <input type="text" class="form-control margin-2" name="pickup-name" id="pickup-name" placeholder="Name">
+                  <input type="text" class="form-control margin-2" name="pickup-tel" id="pickup-tel" placeholder="Phone Number">
                 </div>
               </div>
               <div class="col-5">
@@ -227,12 +225,35 @@
                 </div>
                 <hr>
                 <input type="radio" id="pickup-asap-time" name="pickup-choice">
-                ASAP
+                <label for="pickup-asap-time">ASAP</label>
                 <br>
                 <input type="radio" id="pickup-choose-time" name="pickup-choice">
-                Choose a time
+                <label for="pickup-choose-time">Choose a time</label>
                 <div class="hidden" id="choose-pickup-time">
-                  <input type="time" id="pickup-time" name="pickup-time" min="12:00" max="22:00" step="3600"><br>
+                  <!-- <input type="time" id="pickup-time" name="pickup-time" min="12:00" max="22:00" step="3600"><br> -->
+                  <select id="pickup-time" name="pickup-time" class="form-control">
+                    <option>12:00PM</option>
+                    <option>12:30PM</option>
+                    <option>1:00PM</option>
+                    <option>2:00PM</option>
+                    <option>2:30PM</option>
+                    <option>3:30PM</option>
+                    <option>4:00PM</option>
+                    <option>4:30PM</option>
+                    <option>5:00PM</option>
+                    <option>5:30PM</option>
+                    <option>6:00PM</option>
+                    <option>6:30PM</option>
+                    <option>7:00PM</option>
+                    <option>7:30PM</option>
+                    <option>8:00PM</option>
+                    <option>8:30PM</option>
+                    <option>9:00PM</option>
+                    <option>9:30PM</option>
+                    <option>10:00PM</option>
+                    <option>10:30PM</option>
+                    <option>11:00PM</option>
+                  </select>
                   <small>Operating hours: 12:00PM - 11:00PM</small>
                 </div>                
               </div>
@@ -246,11 +267,11 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                  <input type="text" class="form-control address-input" name="delivery-name" id="delivery-name" placeholder="Name">
-                  <input type="text" class="form-control address-input" name="delivery-tel" id="delivery-tel" placeholder="Phone Number">
-                  <input type="text" class="form-control address-input" name="delivery-address" id="delivery-address" placeholder="Street Address">
-                  <input type="text" class="form-control address-input" name="delivery-city" id="delivery-city" placeholder="City">
-                  <input type="number" class="form-control address-input" name="delivery-zip" id="delivery-zip" placeholder="ZIP">
+                  <input type="text" class="form-control margin-2" name="delivery-name" id="delivery-name" placeholder="Name">
+                  <input type="text" class="form-control margin-2" name="delivery-tel" id="delivery-tel" placeholder="Phone Number">
+                  <input type="text" class="form-control margin-2" name="delivery-address" id="delivery-address" placeholder="Street Address">
+                  <input type="text" class="form-control margin-2" name="delivery-city" id="delivery-city" placeholder="City">
+                  <input type="number" class="form-control margin-2" name="delivery-zip" id="delivery-zip" placeholder="ZIP">
                 </div>
               </div>
               <div class="col-5">
@@ -259,12 +280,34 @@
                 </div>
                 <hr>
                 <input type="radio" id="delivery-asap-time" name="delivery-asap-choice">
-                ASAP
+                <label for="delivery-asap-time">ASAP</label>
                 <br>
                 <input type="radio" id="delivery-choose-time" name="delivery-asap-choice">
-                Choose a time
+                <label for="delivery-choose-time">Choose a time</label>
                 <div class="hidden" id="choose-delivery-time">
-                  <input type="time" id="delivery-time" name="delivery-time" min="12:00" max="22:00" step="3600"><br>
+                  <select id="delivery-time" name="delivery-time" class="form-control">
+                    <option>12:00PM</option>
+                    <option>12:30PM</option>
+                    <option>1:00PM</option>
+                    <option>2:00PM</option>
+                    <option>2:30PM</option>
+                    <option>3:30PM</option>
+                    <option>4:00PM</option>
+                    <option>4:30PM</option>
+                    <option>5:00PM</option>
+                    <option>5:30PM</option>
+                    <option>6:00PM</option>
+                    <option>6:30PM</option>
+                    <option>7:00PM</option>
+                    <option>7:30PM</option>
+                    <option>8:00PM</option>
+                    <option>8:30PM</option>
+                    <option>9:00PM</option>
+                    <option>9:30PM</option>
+                    <option>10:00PM</option>
+                    <option>10:30PM</option>
+                    <option>11:00PM</option>
+                  </select>
                   <small>Operating hours: 12:00PM - 11:00PM</small>
                 </div>                
               </div>
@@ -294,7 +337,22 @@
       <div class="card-body center large-top-margin" >
         <h1 class="heading-1 hidden" id="processing-status">Processing Your Order</h1>
       </div>
-      <div class='hidden center' id="finished-message">
+      <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+          <div class='hidden ' id="finished-message">
+          </div>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container hidden" id="place-another-order">
+    <div class="row">
+      <div class="col-12 center margin-2">
+        <button class="btn btn-light delivery-type">Place another order (refresh)</button>
       </div>
     </div>
   </div>
