@@ -1,4 +1,4 @@
-# _Pizza, pizza.}_
+# _Pizza, pizza._
 
 #### By _**Daniel Lindsey**_
 
