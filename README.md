@@ -1,29 +1,39 @@
-# _{Application Name}_
+# _Pizza, pizza.}_
 
-#### By _**{List of contributors}**_
+#### By _**Daniel Lindsey**_
 
-#### _{Brief description of application}_
+#### _An ordering application for the pizza company known as Pizza, Pizza._
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _CSS_
+* _Bootstrap_
+* _JavaScript_
+* _jQuery_
+* _Markdown_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_When a user navigates to the pizza ordering website for Pizza, pizza. - they will be able to place a pickup or delivery order from Pizza, Pizza. Users will be able to select a Large, Medium, or Small pizza ($20, $15, or $10, respectively), and then choose toppings if they would like any (each topping is $1 each). Once all their pizzas have been added to the order, they can then place the order for pickup or delivery._
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+There are two options for running the application
+* ### GitHub Pages  
+    To view a live version of this project, please navigate to the following site:  
+    https://dlinds.github.io/pizza-pizza/
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* ### Cloning the repository  
+    Alternatively, you can clone/download the repository from Github. To do so,  
+    
+    1. Click the green Code button in the top right of the repository
+    2. Choose Download ZIP
+    3. Navigate to your Downloads folder, and extract the contents to your desktop
+    4. Double click to open index.html
+    5. You should now be viewing the page in your browser.
+
+<br>
 
 ## Tests
 
@@ -45,7 +55,11 @@ Test: An incremental ID should be assigned to each pizza added to order
 Code:  
 myOrder.addPizza(pizza);  
 myOrder;  
-Expected Output: Order {pizzas: {...}, currentID: 1,2,3, etc}  
+Expected Output: Order {pizzas: {...}, currentID: 1}  
+
+myOrder.addPizza(pizza2);  
+myOrder;  
+Expected Output: Order {pizzas: {...}, currentID: 2}  
 
 ### Describe Order.prototype.deletePizza(id) 
 Test: This should delete a pizza from the order
@@ -53,6 +67,11 @@ Code:
 myOrder.deletePizza(id); 
 Expected Output: true
 
+### Describe Order.prototype.findPizza(id) 
+Test: This should find a pizza
+Code:  
+myOrder.findPizza(2); 
+Expected Output: true
 
 ### Describe Pizza(toppings, size)  
 Test: "It should create a Pizza object, with toppings from a list and a size selected"  
@@ -70,11 +89,10 @@ Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: "large", price:
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _There are no known bugs at this time. If you happen to find one, or get a response that is unexpected, please message me on Github!_
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_MIT_
 
-Copyright (c) _date_ _author name(s)_
+Copyright (c) _1/21/2022_ _Daniel Lindsey_
