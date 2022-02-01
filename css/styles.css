@@ -4,10 +4,12 @@
   text-align: left;
   padding: 1em;
 }
-#start-order-card, #finalize-order-card {
+
+.order-card {
   border-radius: 15px;
   padding: 20px;
 }
+
 .pizza-logo {
   max-width: 100%;
 }
@@ -17,6 +19,7 @@
   padding-bottom: 15px;
   text-align: center;
 }
+
 .center {
   text-align: center;
 }
@@ -26,19 +29,22 @@
   margin-bottom: 5%;
 }
 
-#about-text {
+.header-text {
   padding: 1rem 0rem;
 }
+
 #start-order-when-ready {
   margin-top: 50px;
   margin-bottom: 15px;
   text-align: center;
 }
+
 #choose-order-type {
   margin-top: 15px;
   margin-bottom: 15px;
   text-align: center;
 }
+
 #pizza-size {
   width: 300px;
 }
@@ -46,22 +52,28 @@
 .margin-2 {
   margin-top: 2%;
 }
+
 #delivery-time, #delivery-asap-time {
   margin-top: 5%;
 }
+
 #pickup-time, #pickup-asap-time {
   margin-top: 5%;
 }
+
 .delivery-type {
   background-color: #dadada;
 }
+
 .delivery-type:hover {
   background-color: #fadddd;;
 }
+
 #order-placed-details-col {
   border-right: 1px solid #bababa; 
   margin-top: 15px;
 }
+
 .pizza-order-details-names {
   margin-bottom: 20px;
 }
@@ -69,6 +81,7 @@
 #modify-order {
   margin-top: 15px;
 }
+
 #finalize-totals {
   margin-top: 45px;
   padding-top: 10px;
@@ -78,12 +91,14 @@
 .underline-pizza-name {
   text-decoration: underline;
 }
+
 .delivery-type:focus {
   color: #fff;
   background-color: #212529;
   border-color: #004386;
   box-shadow: 0 0 0 0.25rem rgb(250 221 221);
 }
+
 .selected-button {
   color: #fff;
   background-color: #212529;
@@ -94,6 +109,7 @@
 #start-order-button {
   margin-top: 2%;
 }
+
 .menu-containers {
   padding: 2%;
   margin-top: 3%;
@@ -110,6 +126,7 @@
   border-radius: 15px;
   box-shadow: rgb(0 0 0 / 25%) 0px 10px 10px;
 }
+
 #order-place-head {
   text-align: left;
   margin-bottom: 1em;
@@ -119,12 +136,11 @@
   border-radius: 15px;
   box-shadow: rgb(0 0 0 / 25%) 0px 10px 10px;
 }
-#pizza-ordering-card-container {
-  padding: 2%;
-}
+
 .pizza-ordering-header {
   text-align: center;
 }
+
 #ordering-instructions {
   margin-bottom: 15px;
 }
@@ -135,9 +151,11 @@
   padding-top: 1%;
   border-radius: 15px;
 }
+
 #add-pizza {
   padding: 0px 15px 15px 15px;
 }
+
 #add-pizza-button {
   margin-top: 5%;
 }
@@ -145,6 +163,7 @@
 #toppings-menu {
   margin-top: 3%;
 }
+
 .order-row {
   padding-bottom: 15px;
 }
@@ -161,21 +180,23 @@
 .width-50 {
   max-width: 50%;
 }
+
 @media (max-width: 992px) {
   .width-50 {
     max-width: 100%;
   }
 }
 
-
 .subtext {
   font-size: .85em;
 }
+
 .hidden {
   display: none;
 }
+
 .remove-pizza-button,.remove-pizza-button:hover {
-  padding-left:0;
+  padding-left: 0;
   background: white;
   border: 0px solid white;
   color: black;
@@ -186,5 +207,3 @@
   text-align: center;
   margin-top: 25px;
 }
-
-

@@ -86,6 +86,14 @@ const pizza = new Pizza(["pineapple", "bacon"], "large");
 pizza;
 Expected Output: Pizza { toppings: ["pineapple", "bacon"], size: "large", price: 22}  
 
+const pizza2 = new Pizza(["chicken", "five cheese", "sausage"], "medium");
+pizza;
+Expected Output: Pizza { toppings: ["chicken", "five cheese", "sausage"], size: "medium", price: 18} 
+
+const pizza2 = new Pizza(["chicken", "five cheese", "sausage"], "small");
+pizza;
+Expected Output: Pizza { toppings: ["chicken", "five cheese", "sausage"], size: "small", price: 13} 
+
 
 ## Known Bugs
 

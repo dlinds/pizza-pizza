@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container menu-containers" id="start-order-screen">
-    <div class="card" id="start-order-card">
+    <div class="card order-card">
       <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
@@ -19,7 +19,7 @@
             <div class="card-title">
               <h1 class="heading-1">Welcome to <em><strong>Pizza, pizza.</strong></em></h1>
             </div>
-            <div class="card-body" id="about-text">
+            <div class="card-body header-text">
               <p>
                 Welcome to the website for the world famous <em><strong>Pizza, pizza.</strong></em> restaurant, located in Portland, OR. 
                 <em><strong>Pizza, pizza.</strong></em> is the oldest pizza place in Portland, having served the community for 200 years. Yes, <strong>200 years</strong>. We are older than the Oregon Trail.
@@ -34,11 +34,10 @@
         </div>
         <button class="btn btn-dark" id="start-order-button">Start Order</button>
       </div>
-      
     </div>
   </div>
   <div class="container menu-containers hidden" id="pizza-ordering-container">
-    <div class="card" id="pizza-ordering-card-container">
+    <div class="card order-card">
       <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
@@ -46,9 +45,9 @@
           </div>
           <div class="col-lg-7">
             <div class="card-title">
-              <h1 class="heading-1">Pick your pizzas</strong></em></h1>
+              <h1 class="heading-1 header-text">Pick your pizzas</h1>
             </div>
-            <div class="card-body" id="about-text">
+            <div class="card-body">
               <p>
                 First, choose a size. 
               </p>
@@ -63,15 +62,13 @@
             <h2 class="heading-2" id="order-place-head">Add a Pizza</h2>
             <form id="add-pizza">
               <div class="form-group" id="choose-a-size">
-                <label for="pizza-size">
-                  <h4>First, choose a size:</h4>
-                </label>
-                    <select class="form-control" id="pizza-size" required>
-                      <option disabled selected value></option>
-                      <option value="Small">Small ($10)</option>
-                      <option value="Medium">Medium ($15)</option>
-                      <option value="Large">Large ($20)</option>
-                    </select>
+                <h4>First, choose a size:</h4>
+                  <select class="form-control" id="pizza-size" required>
+                    <option disabled selected value>&nbsp;</option>
+                    <option value="Small">Small ($10)</option>
+                    <option value="Medium">Medium ($15)</option>
+                    <option value="Large">Large ($20)</option>
+                  </select>
               </div>
               <div class="hidden" id="toppings-menu">   
                 <h4>Optionally, choose some toppings:</h4>
@@ -172,7 +169,7 @@
     </div>
   </div>
   <div class="container menu-containers hidden" id="order-placed-screen">
-    <div class="card" id="finalize-order-card">
+    <div class="card order-card">
       <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
@@ -180,7 +177,7 @@
           </div>
           <div class="col-lg-7">
             <div class="card-title">
-              <h1 class="heading-1">Finalize your order</strong></em></h1>
+              <h1 class="heading-1">Finalize your order</h1>
             </div>
           </div>
         </div>
@@ -320,8 +317,8 @@
       </div>
     </div>
   </div>
-  <div class="container hidden menu-containers " id="processing-order">
-    <div class="card" id="finalize-order-card">
+  <div class="container hidden menu-containers" id="processing-order">
+    <div class="card order-card">
       <div class="screen-header">
         <div class="row">
           <div class="col-lg-5">
@@ -329,7 +326,7 @@
           </div>
           <div class="col-lg-7">
             <div class="card-title">
-              <h1 class="heading-1">Processing your order</strong></em></h1>
+              <h1 class="heading-1">Processing your order</h1>
             </div>
           </div>
         </div>
